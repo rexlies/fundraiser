@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e2136e">
+  <title>helpin a man in need is a deed</title>
+  <style>
+    :root { --pink:#e2136e; --ink:#17151b; --muted:#77717b; --paper:#fffafc; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--ink); background:radial-gradient(circle at 15% 5%,#ffe0ed 0,transparent 32%),radial-gradient(circle at 90% 90%,#ffe9d8 0,transparent 30%),var(--paper); }
+    .wrap { width:min(100% - 36px,760px); margin:0 auto; padding:52px 0 36px; }
+    .topline { display:flex; align-items:center; justify-content:space-between; gap:12px; color:var(--muted); font-size:12px; letter-spacing:.13em; text-transform:uppercase; font-weight:750; }
+    .dot { width:9px;height:9px;border-radius:50%;background:#24a36b;display:inline-block;margin-right:8px;box-shadow:0 0 0 4px #dff5e9; }
+    .hero { padding:70px 0 34px; }
+    .eyebrow { color:var(--pink); font-size:13px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
+    h1 { font-size:clamp(42px,8vw,76px); line-height:.98; letter-spacing:-.065em; margin:18px 0; max-width:700px; }
+    .intro { max-width:560px; font-size:17px; line-height:1.7; color:#625b65; }
+    .card { background:#fff; border:1px solid #f2e6ec; border-radius:25px; padding:clamp(22px,5vw,36px); box-shadow:0 20px 60px #4b16300d; }
+    .goal-head { display:flex; justify-content:space-between; align-items:end; gap:15px; flex-wrap:wrap; }
+    .label { color:var(--muted); font-size:12px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    .amount { font-size:clamp(32px,7vw,48px); font-weight:850; letter-spacing:-.055em; margin-top:7px; }
+    .target { color:var(--muted); font-size:14px; }
+    .track { height:11px; border-radius:99px; background:#f4e8ee; overflow:hidden; margin:24px 0 10px; }
+    .fill { width:0%; height:100%; background:linear-gradient(90deg,#e2136e,#ff7aa9); border-radius:99px; }
+    .progress-caption { display:flex; justify-content:space-between; color:var(--muted); font-size:12px; }
+    .donate { margin-top:18px; }
+    .donate h2 { font-size:25px; letter-spacing:-.04em; margin:0 0 8px; }
+    .donate p { color:var(--muted); line-height:1.6; margin:0 0 22px; font-size:14px; }
+    .number-box { border:1px dashed #e7b6cc; border-radius:15px; padding:16px; display:flex; justify-content:space-between; align-items:center; gap:12px; background:#fff8fb; }
+    .number { font-size:clamp(20px,5vw,27px); font-weight:850; letter-spacing:.02em; }
+    button { border:0; border-radius:12px; padding:13px 17px; background:var(--pink); color:#fff; font-weight:800; cursor:pointer; font-size:14px; transition:transform .15s,filter .15s; }
+    button:hover { filter:brightness(.95); transform:translateY(-1px); }
+    button:focus-visible,a:focus-visible { outline:3px solid #f6a6c8; outline-offset:3px; }
+    .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:18px; }
+    .step { padding:15px; border-radius:15px; background:#fff7fa; border:1px solid #f5e8ee; }
+    .step b { display:block; font-size:13px; margin-bottom:6px; }
+    .step span { color:var(--muted); font-size:12px; line-height:1.5; }
+    .note { margin-top:18px; font-size:12px; color:var(--muted); line-height:1.65; }
+    footer { text-align:center; color:#928a94; font-size:12px; padding:28px 0 0; }
+    @media(max-width:560px) { .wrap{padding-top:28px}.hero{padding-top:55px}.steps{grid-template-columns:1fr}.number-box{align-items:flex-start;flex-direction:column}.number-box button{width:100%}.topline{font-size:10px} }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="topline">
+      <span>PERSONAL FUNDRAISER</span>
+      <span><i class="dot"></i>Fundraiser open</span>
+    </div>
+
+    <section class="hero">
+      <div class="eyebrow">A little kindness goes a long way</div>
+      <h1>helpin a man in need is a deed</h1>
+      <p class="intro">A small personal fundraiser with a goal of ৳5,000. If you'd like to contribute, any amount is appreciated. Thank you for taking the time to help.</p>
+    </section>
+
+    <section class="card" aria-label="Fundraising goal and contribution details">
+      <div class="goal-head">
+        <div>
+          <div class="label">Fundraising goal</div>
+          <div class="amount">৳5,000</div>
+        </div>
+        <div class="target">৳0 raised so far</div>
+      </div>
+      <div class="track" role="progressbar" aria-label="Fundraising progress" aria-valuemin="0" aria-valuemax="5000" aria-valuenow="0">
+        <div class="fill"></div>
+      </div>
+      <div class="progress-caption"><span>0% funded</span><span>Goal: ৳5,000</span></div>
+
+      <div class="donate">
+        <h2>Want to contribute?</h2>
+        <p>Send your contribution to the bKash personal number below. Please double-check the recipient number and name shown in bKash before confirming.</p>
+        <div class="number-box">
+          <div>
+            <div class="label">bKash personal number</div>
+            <div class="number" id="bkashNumber">01631979629</div>
+          </div>
+          <button id="copyBtn" type="button">Copy number</button>
+        </div>
+        <div class="steps">
+          <div class="step"><b>01 · Copy</b><span>Copy the bKash number above.</span></div>
+          <div class="step"><b>02 · Open bKash</b><span>Open your bKash app and choose Send Money.</span></div>
+          <div class="step"><b>03 · Confirm</b><span>Enter your chosen amount and verify the recipient before sending.</span></div>
+        </div>
+        <p class="note">This is a voluntary personal fundraiser, not a registered charity. Payments are sent directly through bKash; this website does not collect, process, or verify payments. Only contribute if you want to, and never share your PIN or OTP.</p>
+      </div>
+    </section>
+
+    <footer>Thank you for your kindness · Personal fundraiser</footer>
+  </main>
+  <script>
+    const copyBtn = document.getElementById('copyBtn');
+    const number = document.getElementById('bkashNumber').textContent.trim();
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(number);
+        copyBtn.textContent = 'Copied!';
+        setTimeout(() => copyBtn.textContent = 'Copy number', 1800);
+      } catch {
+        window.prompt('Copy this bKash number:', number);
+      }
+    });
+  </script>
+</body>
+</html>
